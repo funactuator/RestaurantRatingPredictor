@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Total Data Science</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+
+        /* Add styles to the form container */
+        .container {
+          position: absolute;
+          left: 40%;
+          margin: 20px;
+          max-width: 300px;
+          padding: 16px;
+          background-color: white;
+        }
+
+        /* Full-width input fields */
+          input[type=text], input[type=password] {
+          width: 100%;
+          padding: 15px;
+          margin: 5px 0 22px 0;
+          border: none;
+          background: #f1f1f1;
+        }
+
+        input[type=text]:focus, input[type=password]:focus {
+          background-color: #ddd;
+          outline: none;
+        }
+
+        /* Set a style for the submit button */
+        .btn {
+          background-color: #04AA6D;
+          color: white;
+          padding: 16px 20px;
+          border: none;
+          cursor: pointer;
+          width: 100%;
+          opacity: 0.9;
+        }
+
+        .btn:hover {
+          opacity: 1;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Zomato_Logo.svg" alt="zomato", width="180", height="100", style="float:left;margin-left: 4em;">
+
+
+<style>
+body {
+  background-image: url("https://images.pexels.com/photos/2208750/pexels-photo-2208750.jpeg");
+  background-position: 200%;
+  background-size: cover;
+}
+
+.rating-box{
+  display: flex;
+  justify-content: center;
+}
+</style>
+
+
+
+ <div class="login" style="height: 8em;margin-left: 30em;padding-top: 0.8em;">
+	<h1>Predict Zomato Restaurant Ratings</h1>
+ </div>
+<div>
+  <div class="bg-img">
+      <!-- Main Input For Receiving Query to our ML -->
+      <form action="{{ url_for('predict')}}"method="post" class="container">
+          <h1>Fill Details</h1>
+        Order Online: <input type="text" name="Online Order" placeholder="Order Online" required="required" /> <br>
+          Book Table: <input type="text" name="Book Table" placeholder="Book Table" required="required" /> <br>
+      Votes: <input type="text" name="Votes" placeholder="Votes" required="required" /> <br>
+          Location: <input type="text" name="Location" placeholder="Location" required="required" /> <br>
+          Restaurant Type: <input type="text" name="Restaurant Type" placeholder="Restaurant Type" required="required" /> <br>
+          Cuisines: <input type="text" name="Cuisines" placeholder="Cuisines" required="required" /> <br>
+          Cost: <input type="text" name="Cost" placeholder="Cost" required="required" /> <br>
+          Menu Item: <input type="text" name="Menu Item" placeholder="Menu Item" required="required" /> <br>
+
+          <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+      </form>
+
+    <br >
+  </div>
+
+  <div class="rating-box">
+    {{prediction_text}}
+  </div>
+
+ </div>
+
+
+</body>
+</html>
