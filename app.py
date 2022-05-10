@@ -25,4 +25,4 @@ def predict():
     return render_template('predict.html', prediction_text='Your Rating is: {}'.format(output))
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
